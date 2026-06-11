@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Raleway:wght@500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-light-bg text-light-text antialiased transition-colors duration-300;
+  }
+  .dark body {
+    @apply bg-dark-bg text-dark-text;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Raleway', sans-serif;
+    @apply font-bold tracking-tight;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center bg-primary text-white px-6 py-3 rounded-lg font-semibold 
+           hover:bg-blue-600 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1;
+  }
+  
+  .btn-secondary {
+    @apply inline-flex items-center justify-center border-2 border-primary text-primary px-6 py-3 rounded-lg font-semibold 
+           hover:bg-blue-50 dark:hover:bg-slate-800 transition-all duration-300;
+  }
+
+  .card {
+    @apply bg-white dark:bg-dark-card border border-gray-200 dark:border-slate-700 rounded-xl p-6 
+           shadow-card dark:shadow-card-dark hover:shadow-card-hover dark:hover:shadow-card-dark-hover 
+           transition-all duration-300 transform hover:-translate-y-1;
+  }
+  
+  .badge {
+    @apply bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-gray-300 px-3 py-1.5 rounded-full text-xs font-semibold m-1 inline-block;
+  }
+
+  .nav-link {
+    @apply text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary font-medium transition-colors duration-200;
+  }
+  
+  .nav-link.active {
+    @apply text-primary font-bold;
+  }
+}
