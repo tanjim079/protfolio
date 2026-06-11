@@ -3,6 +3,18 @@ import { FaGithub } from 'react-icons/fa';
 
 const projects = [
   {
+    title: 'Developer Portfolio',
+    description: 'My personal developer portfolio designed to showcase my projects, skills, and experiences.',
+    tech: ['React', 'Tailwind CSS', 'Vite', 'EmailJS'],
+    features: [
+      'Modern, responsive, and accessible UI',
+      'Dark and light mode theme support',
+      'Direct email integration via EmailJS'
+    ],
+    github: 'https://github.com/tanjim079/protfolio',
+    demo: 'https://sheikhtanjim.netlify.app/',
+  },
+  {
     title: 'Ukil Chamber',
     description: 'A comprehensive Legal Consultation Platform connecting users with professional lawyers.',
     tech: ['React', 'Node.js', 'Supabase'],
