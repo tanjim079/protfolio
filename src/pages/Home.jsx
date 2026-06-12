@@ -17,7 +17,7 @@ export default function Home() {
         <div className="w-48 h-48 md:w-56 md:h-56 rounded-full p-2 border-4 border-white dark:border-dark-card shadow-xl mb-8 relative group">
           <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10 blur-md"></div>
           <img
-            src="/profile_nobg.png"
+            src="/profile.jpeg"
             alt="Sheikh Tanjim Ahmed"
             className="w-full h-full object-cover rounded-full bg-slate-100 dark:bg-slate-800"
             onError={(e) => { e.target.src = "https://via.placeholder.com/200?text=Profile" }}
