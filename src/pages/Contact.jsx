@@ -19,8 +19,8 @@ const contactInfo = [
   {
     icon: FaWhatsapp,
     label: 'WhatsApp',
-    value: '+880 1783-854832',
-    href: 'https://wa.me/8801783854832',
+    value: '+880 1315-293532',
+    href: 'https://wa.me/8801315293532',
     color: 'bg-emerald-500/10 text-emerald-500',
   },
   {
