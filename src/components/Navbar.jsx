@@ -71,7 +71,7 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-1 lg:space-x-4 items-center">
+          <nav className="hidden lg:flex space-x-1 lg:space-x-2 xl:space-x-4 items-center">
             {navLinks.map((link) => (
               <NavLink
                 key={link.name}
@@ -95,7 +95,7 @@ export default function Navbar() {
           </nav>
 
           {/* Mobile menu button */}
-          <div className="flex md:hidden items-center space-x-4">
+          <div className="flex lg:hidden items-center space-x-4">
             <button 
               onClick={toggleDarkMode}
               className="p-2 text-gray-500 dark:text-gray-400 focus:outline-none"
@@ -114,7 +114,7 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Navigation */}
-      <div className={`md:hidden transition-all duration-300 overflow-hidden ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+      <div className={`lg:hidden transition-all duration-300 overflow-hidden ${isOpen ? 'max-h-[calc(100vh-4rem)] overflow-y-auto opacity-100' : 'max-h-0 opacity-0'}`}>
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white dark:bg-dark-card shadow-lg border-b border-gray-100 dark:border-slate-800">
           {navLinks.map((link) => (
             <NavLink
