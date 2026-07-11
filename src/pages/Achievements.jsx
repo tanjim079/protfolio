@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Trophy, Award, Users } from 'lucide-react';
-import { FaGithub } from 'react-icons/fa';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Achievements() {
@@ -38,7 +38,8 @@ export default function Achievements() {
     'Aptis for Teens - Preparation Course',
     'CSE/ECE/ETE Job Sector after Engineering',
     'DriveSafe: Intelligent Vehicle Safety and Tracking System',
-    'Safer Internet for Children'
+    'Safer Internet for Children',
+    'Programming Fundamental by Grameenphone LTD.'
   ];
 
   const activities = [
@@ -134,6 +135,25 @@ export default function Achievements() {
                 </li>
               ))}
             </ul>
+
+            {/* LinkedIn CTA */}
+            <div className="mt-10 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/10 dark:to-indigo-900/10 border border-blue-100 dark:border-blue-900/30 rounded-xl flex flex-col sm:flex-row items-center justify-between gap-6 transition-all duration-300 hover:shadow-md">
+              <div className="flex-1 text-center sm:text-left">
+                <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1">Looking for Credentials?</h3>
+                <p className="text-gray-600 dark:text-gray-400 text-sm">
+                  Visit my LinkedIn profile to see detailed certificates, credentials, and endorsements.
+                </p>
+              </div>
+              <a
+                href="https://linkedin.com/in/sheikhtanjimahmed"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#0A66C2] hover:bg-[#004182] text-white font-semibold rounded-lg transition-colors duration-300 shadow-sm shrink-0"
+              >
+                <FaLinkedin className="w-5 h-5" />
+                View on LinkedIn
+              </a>
+            </div>
           </motion.div>
         );
       case 'activities':
