@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { Menu, X, Moon, Sun } from 'lucide-react';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const location = useLocation();
 
   const [darkMode, setDarkMode] = useState(() => {
     return localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
@@ -19,10 +18,7 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu on route change
-  useEffect(() => {
-    setIsOpen(false);
-  }, [location.pathname]);
+
 
   // Prevent body scroll when mobile menu is open
   useEffect(() => {
@@ -184,6 +180,7 @@ export default function Navbar() {
                   <NavLink
                     key={link.name}
                     to={link.path}
+                    onClick={() => setIsOpen(false)}
                     className={({ isActive }) => 
                       `px-4 py-3 rounded-xl text-sm font-semibold transition-all duration-200 ${
                         isActive 
