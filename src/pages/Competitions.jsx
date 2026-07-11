@@ -1,4 +1,5 @@
-import { Trophy, Github } from 'lucide-react';
+import { Trophy } from 'lucide-react';
+import { FaGithub } from 'react-icons/fa';
 
 export default function Competitions() {
   const competitions = [
@@ -57,7 +58,7 @@ export default function Competitions() {
                       rel="noopener noreferrer"
                       className="p-2 bg-gray-100 dark:bg-slate-800 text-gray-600 dark:text-gray-300 rounded-full hover:text-primary dark:hover:text-primary transition-colors"
                     >
-                      <Github className="w-5 h-5" />
+                      <FaGithub className="w-5 h-5" />
                     </a>
                   )}
                 </div>
