@@ -123,7 +123,7 @@ export default function Projects() {
 
               <div className="flex flex-wrap gap-2 mt-auto pt-4 border-t border-gray-100 dark:border-slate-700">
                 {project.tech.map((t, idx) => (
-                  <span key={idx} className="text-xs font-medium text-primary bg-primary/5 px-3 py-1 rounded-full">
+                  <span key={idx} className="text-xs font-medium text-primary bg-primary/5 px-3 py-1 rounded-full transition-all duration-300 hover:bg-primary hover:text-white hover:-translate-y-1 hover:shadow-md cursor-default">
                     {t}
                   </span>
                 ))}
