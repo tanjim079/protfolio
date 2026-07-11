@@ -11,6 +11,7 @@ import Skills from './pages/Skills';
 import Experience from './pages/Experience';
 import Education from './pages/Education';
 import Activities from './pages/Activities';
+import Competitions from './pages/Competitions';
 import Contact from './pages/Contact';
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
             <Route path="/experience" element={<Experience />} />
             <Route path="/education" element={<Education />} />
             <Route path="/activities" element={<Activities />} />
+            <Route path="/competitions" element={<Competitions />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>
