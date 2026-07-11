@@ -47,8 +47,7 @@ export default function Navbar() {
     { name: 'Projects', path: '/projects' },
     { name: 'Skills', path: '/skills' },
     { name: 'Education', path: '/education' },
-    { name: 'Activities', path: '/activities' },
-    { name: 'Competitions', path: '/competitions' },
+    { name: 'Achievements', path: '/achievements' },
     { name: 'Contact', path: '/contact' },
   ];
 
