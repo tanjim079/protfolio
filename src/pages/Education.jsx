@@ -23,7 +23,7 @@ export default function Education() {
                 <div className="bg-white dark:bg-dark-card border border-gray-100 dark:border-slate-700 rounded-xl p-5 shadow-sm">
                   <span className="text-sm font-semibold text-primary mb-1 block">Aug 2023 - Present</span>
                   <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1">
-                    B.Sc. Engineering in Electronics & Telecommunication
+                    B.Sc. Engineering in Electronics & Telecommunication Engineering
                   </h3>
                   <p className="text-gray-600 dark:text-gray-400">Rajshahi University of Engineering & Technology (RUET)</p>
                 </div>
