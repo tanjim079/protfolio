@@ -3,6 +3,19 @@ import { Calendar, MapPin } from 'lucide-react';
 const experiences = [
   {
     id: 1,
+    role: "Product Development Engineer",
+    company: "Ukil Chamber – Legal Consultation Platform",
+    location: "Remote",
+    duration: "February 2026 - Present",
+    description: [
+      "Designed and developed a full-stack web application connecting clients with lawyers through appointment booking and real-time communication.",
+      "Engineered role-based authentication, scheduling, availability management, and secure document sharing using Supabase services.",
+      "Optimized the application with a responsive React frontend, PostgreSQL database, and real-time synchronization for an improved user experience."
+    ],
+    tech: ["React.js", "Supabase", "JavaScript"]
+  },
+  {
+    id: 2,
     role: "Front-end AI Engineer",
     company: "FlyRank AI",
     location: "Chicago (Remote)",
@@ -15,7 +28,7 @@ const experiences = [
     tech: ["React.js", "Tailwind CSS", "AI Tools API"]
   },
   {
-    id: 2,
+    id: 3,
     role: "Intern - Web Development",
     company: "CodeAlpha",
     location: "Lucknow (Remote)",
