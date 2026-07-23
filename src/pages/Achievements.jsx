@@ -34,19 +34,19 @@ export default function Achievements() {
   ];
 
   const certifications = [
-    'Financial Inclusion: Engaging and Inspiring Youth in Banking',
-    'Aptis for Teens - Preparation Course',
-    'CSE/ECE/ETE Job Sector after Engineering',
-    'DriveSafe: Intelligent Vehicle Safety and Tracking System',
-    'Safer Internet for Children',
-    'Programming Fundamental by Grameenphone LTD.'
+    { title: 'AI Fluency: Framework & Foundations by ANTHROPIC', image: '/AI Fluency.jpg' },
+    { title: 'DriveSafe: Intelligent Vehicle Safety and Tracking System', image: '/DriveSafe.png' },
+    { title: 'Programming Fundamental by Grameenphone LTD.', image: '/Programming Fundamental.jpg' },
+    { title: 'Aptis for Teens - Preparation Course', image: '/Aptis for Teens.jpg' },
+    { title: 'Financial Inclusion: Engaging and Inspiring Youth in Banking', image: '/Financial Inclusion.jpg' },
+    { title: 'CSE/ECE/ETE Job Sector after Engineering', image: '/CSEECEETE Job Sector after Engineering.png' }
   ];
 
   const activities = [
     'Graphics Design Team Lead - Notre Dame College Association of RUET',
     'Logistics Team Lead - Notre Dame College Association of RUET',
     'Assistant Organizing Secretary - Notre Dame College Association of RUET',
-    'Former IT Lead - Tarunner Proyas, Bonpara, Natore (A new Local Voluntary Organization)',
+    'Former IT Lead - Tarunner Proyas, Bonpara, Natore (Local Voluntary Organization)',
     'Former Campus Ambassador - Trimatrik Rosikota',
     'Former Executive Member - Photographic Society of RUET',
     'Former Member - Notre Dame English Club'
@@ -121,20 +121,36 @@ export default function Achievements() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 20 }}
             transition={{ duration: 0.3 }}
-            className="bg-white dark:bg-dark-card border border-gray-100 dark:border-slate-700 rounded-xl p-8 shadow-card dark:shadow-card-dark"
+            className="space-y-8"
           >
-            <div className="flex items-center gap-3 mb-8">
+            <div className="flex items-center gap-3 mb-2">
               <Award className="w-8 h-8 text-primary" />
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Certifications</h2>
             </div>
-            <ul className="space-y-4">
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {certifications.map((cert, idx) => (
-                <li key={idx} className="flex items-start gap-3">
-                  <span className="text-primary font-bold mt-0.5">•</span>
-                  <span className="text-gray-700 dark:text-gray-300 text-lg">{cert}</span>
-                </li>
+                <motion.div
+                  key={idx}
+                  whileHover={{ y: -8 }}
+                  className="bg-white dark:bg-dark-card border border-gray-100 dark:border-slate-700 rounded-2xl overflow-hidden shadow-card dark:shadow-card-dark hover:shadow-xl hover:border-primary/30 transition-all duration-300 group flex flex-col"
+                >
+                  <div className="relative aspect-[4/3] overflow-hidden bg-gray-50 dark:bg-slate-800/50 p-4 border-b border-gray-100 dark:border-slate-700 flex items-center justify-center">
+                    <img
+                      src={cert.image}
+                      alt={cert.title}
+                      className="w-full h-full object-contain group-hover:scale-[1.03] transition-transform duration-500 rounded-lg drop-shadow-md"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </div>
+                  <div className="p-6 flex-grow flex flex-col justify-center">
+                    <h3 className="text-base font-bold text-gray-900 dark:text-white line-clamp-2 group-hover:text-primary transition-colors duration-300" title={cert.title}>
+                      {cert.title}
+                    </h3>
+                  </div>
+                </motion.div>
               ))}
-            </ul>
+            </div>
 
             {/* LinkedIn CTA */}
             <div className="mt-10 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/10 dark:to-indigo-900/10 border border-blue-100 dark:border-blue-900/30 rounded-xl flex flex-col sm:flex-row items-center justify-between gap-6 transition-all duration-300 hover:shadow-md">
