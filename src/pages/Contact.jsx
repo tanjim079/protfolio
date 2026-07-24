@@ -27,7 +27,7 @@ const contactInfo = [
     icon: MapPin,
     label: 'Location',
     value: 'Rajshahi, Bangladesh',
-    href: 'https://maps.google.com/?q=Rajshahi,Bangladesh',
+    href: 'https://www.google.com/maps/@24.3701003,88.6228339,1511m/data=!3m1!1e3?entry=ttu&g_ep=EgoyMDI2MDcyMS4wIKXMDSoASAFQAw%3D%3D',
     color: 'bg-blue-500/10 text-blue-500',
   },
 ];
@@ -72,7 +72,7 @@ export default function Contact() {
         </p>
 
         {/* Contact Info Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-12">
+        <div className="flex flex-col gap-5 mb-12 max-w-2xl mx-auto">
           {contactInfo.map((item) => (
             <a
               key={item.label}
@@ -86,7 +86,7 @@ export default function Contact() {
               </div>
               <div className="min-w-0">
                 <p className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-0.5">{item.label}</p>
-                <p className="text-gray-900 dark:text-white font-semibold truncate">{item.value}</p>
+                <p className="text-gray-900 dark:text-white font-semibold break-all">{item.value}</p>
               </div>
               <ExternalLink className="w-4 h-4 text-gray-400 ml-auto shrink-0 opacity-0 group-hover:opacity-100 transition-opacity" />
             </a>

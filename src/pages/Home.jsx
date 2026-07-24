@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+
 import { ArrowRight, Mail } from 'lucide-react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { TypeAnimation } from 'react-type-animation';
@@ -51,13 +51,13 @@ export default function Home() {
 
         {/* Call to Actions */}
         <div className="flex flex-col sm:flex-row gap-4 mb-12">
-          <Link to="/projects" className="btn-primary group">
+          <a href="#projects" className="btn-primary group">
             View My Projects
             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </Link>
-          <Link to="/contact" className="btn-secondary">
+          </a>
+          <a href="#contact" className="btn-secondary">
             Let's Work Together
-          </Link>
+          </a>
         </div>
 
         {/* Social Links */}

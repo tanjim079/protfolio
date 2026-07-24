@@ -1,13 +1,8 @@
-import { ArrowUp, Mail } from 'lucide-react';
+import { Mail } from 'lucide-react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 export default function Footer() {
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  };
+
 
   const year = new Date().getFullYear();
 
@@ -44,13 +39,7 @@ export default function Footer() {
             <p className="text-sm text-gray-500 dark:text-gray-400">
               © {year} All rights reserved.
             </p>
-            <button
-              onClick={scrollToTop}
-              className="p-2 bg-gray-100 dark:bg-slate-800 text-gray-600 dark:text-gray-300 rounded-full hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-dark-card"
-              aria-label="Back to Top"
-            >
-              <ArrowUp className="w-5 h-5" />
-            </button>
+
           </div>
 
         </div>

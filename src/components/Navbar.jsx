@@ -1,24 +1,45 @@
 import { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
 import { Menu, X, Moon, Sun } from 'lucide-react';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
 
   const [darkMode, setDarkMode] = useState(() => {
     return localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
   });
 
+  const navLinks = [
+    { name: 'Home', id: 'home' },
+    { name: 'About', id: 'about' },
+    { name: 'Experience', id: 'experience' },
+    { name: 'Projects', id: 'projects' },
+    { name: 'Skills', id: 'skills' },
+    { name: 'Education', id: 'education' },
+    { name: 'Achievements', id: 'achievements' },
+    { name: 'Contact', id: 'contact' },
+  ];
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
+      
+      const scrollPosition = window.scrollY + 100;
+      
+      // Scroll spy logic
+      let currentSection = 'home';
+      for (const link of navLinks) {
+        const section = document.getElementById(link.id);
+        if (section && section.offsetTop <= scrollPosition) {
+          currentSection = link.id;
+        }
+      }
+      setActiveSection(currentSection);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-
 
   // Prevent body scroll when mobile menu is open
   useEffect(() => {
@@ -52,16 +73,15 @@ export default function Navbar() {
     }
   };
 
-  const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
-    { name: 'Experience', path: '/experience' },
-    { name: 'Projects', path: '/projects' },
-    { name: 'Skills', path: '/skills' },
-    { name: 'Education', path: '/education' },
-    { name: 'Achievements', path: '/achievements' },
-    { name: 'Contact', path: '/contact' },
-  ];
+  const scrollToSection = (e, id) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      const y = element.getBoundingClientRect().top + window.scrollY - 80;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+    setIsOpen(false);
+  };
 
   return (
     <>
@@ -76,37 +96,32 @@ export default function Navbar() {
           <div className="flex justify-between items-center h-10">
             {/* Logo */}
             <div className="flex-shrink-0 flex items-center">
-              <NavLink to="/" className="text-xl md:text-2xl font-extrabold tracking-tight text-gray-900 dark:text-white group">
+              <a href="#home" onClick={(e) => scrollToSection(e, 'home')} className="text-xl md:text-2xl font-extrabold tracking-tight text-gray-900 dark:text-white group">
                 ST<span className="text-primary group-hover:text-accent transition-colors duration-300">.</span> Ahmed
-              </NavLink>
+              </a>
             </div>
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-0.5">
               {navLinks.map((link) => (
-                <NavLink
+                <a
                   key={link.name}
-                  to={link.path}
-                  className={({ isActive }) => 
-                    `relative px-2.5 xl:px-3 py-1.5 rounded-full text-xs xl:text-sm font-medium transition-all duration-300 overflow-hidden group whitespace-nowrap ${
-                      isActive 
-                        ? 'text-white' 
-                        : 'text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white'
-                    }`
-                  }
+                  href={`#${link.id}`}
+                  onClick={(e) => scrollToSection(e, link.id)}
+                  className={`relative px-2.5 xl:px-3 py-1.5 rounded-full text-xs xl:text-sm font-medium transition-all duration-300 overflow-hidden group whitespace-nowrap ${
+                    activeSection === link.id 
+                      ? 'text-white' 
+                      : 'text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white'
+                  }`}
                 >
-                  {({ isActive }) => (
-                    <>
-                      <span className="relative z-10">{link.name}</span>
-                      {isActive && (
-                        <span className="absolute inset-0 bg-primary z-0 rounded-full shadow-[0_0_10px_rgba(15,111,255,0.4)]"></span>
-                      )}
-                      {!isActive && (
-                        <span className="absolute inset-0 bg-primary/10 dark:bg-primary/20 z-0 rounded-full translate-y-[100%] opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 ease-out"></span>
-                      )}
-                    </>
+                  <span className="relative z-10">{link.name}</span>
+                  {activeSection === link.id && (
+                    <span className="absolute inset-0 bg-primary z-0 rounded-full shadow-[0_0_10px_rgba(15,111,255,0.4)]"></span>
                   )}
-                </NavLink>
+                  {activeSection !== link.id && (
+                    <span className="absolute inset-0 bg-primary/10 dark:bg-primary/20 z-0 rounded-full translate-y-[100%] opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 ease-out"></span>
+                  )}
+                </a>
               ))}
             </nav>
 
@@ -177,20 +192,18 @@ export default function Navbar() {
             <nav className="flex-1 px-4 py-6 overflow-y-auto">
               <div className="flex flex-col gap-1">
                 {navLinks.map((link) => (
-                  <NavLink
+                  <a
                     key={link.name}
-                    to={link.path}
-                    onClick={() => setIsOpen(false)}
-                    className={({ isActive }) => 
-                      `px-4 py-3 rounded-xl text-sm font-semibold transition-all duration-200 ${
-                        isActive 
-                          ? 'bg-primary text-white shadow-md shadow-primary/20' 
-                          : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-800 hover:text-primary'
-                      }`
-                    }
+                    href={`#${link.id}`}
+                    onClick={(e) => scrollToSection(e, link.id)}
+                    className={`px-4 py-3 rounded-xl text-sm font-semibold transition-all duration-200 ${
+                      activeSection === link.id 
+                        ? 'bg-primary text-white shadow-md shadow-primary/20' 
+                        : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-800 hover:text-primary'
+                    }`}
                   >
                     {link.name}
-                  </NavLink>
+                  </a>
                 ))}
               </div>
             </nav>
@@ -205,4 +218,3 @@ export default function Navbar() {
     </>
   );
 }
-
