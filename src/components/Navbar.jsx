@@ -1,6 +1,17 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Moon, Sun } from 'lucide-react';
 
+const navLinks = [
+  { name: 'Home', id: 'home' },
+  { name: 'About', id: 'about' },
+  { name: 'Experience', id: 'experience' },
+  { name: 'Projects', id: 'projects' },
+  { name: 'Skills', id: 'skills' },
+  { name: 'Education', id: 'education' },
+  { name: 'Achievements', id: 'achievements' },
+  { name: 'Contact', id: 'contact' },
+];
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -9,17 +20,6 @@ export default function Navbar() {
   const [darkMode, setDarkMode] = useState(() => {
     return localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
   });
-
-  const navLinks = [
-    { name: 'Home', id: 'home' },
-    { name: 'About', id: 'about' },
-    { name: 'Experience', id: 'experience' },
-    { name: 'Projects', id: 'projects' },
-    { name: 'Skills', id: 'skills' },
-    { name: 'Education', id: 'education' },
-    { name: 'Achievements', id: 'achievements' },
-    { name: 'Contact', id: 'contact' },
-  ];
 
   useEffect(() => {
     const handleScroll = () => {
