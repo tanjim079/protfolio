@@ -32,7 +32,7 @@ const experiences = [
     role: "Intern - Web Development",
     company: "CodeAlpha",
     location: "Lucknow (Remote)",
-    duration: "June 2026 - Present",
+    duration: "June 2026 - August 2026",
     description: [
       "Working on full-stack web applications to solve business problems.",
       "Building responsive front-end interfaces and connecting them to robust backend services.",
@@ -55,7 +55,7 @@ export default function Experience() {
             <div key={exp.id} className="relative pl-8 md:pl-10">
               {/* Timeline dot */}
               <div className="absolute w-6 h-6 bg-white dark:bg-dark-bg border-4 border-primary rounded-full -left-[13px] top-1"></div>
-              
+
               <div className="card">
                 <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-4">
                   <div>
@@ -66,7 +66,7 @@ export default function Experience() {
                       {exp.company}
                     </h4>
                   </div>
-                  
+
                   <div className="flex flex-col gap-2 text-sm text-gray-500 dark:text-gray-400">
                     <div className="flex items-center gap-1.5 bg-gray-100 dark:bg-slate-800 px-3 py-1 rounded-full w-fit">
                       <Calendar className="w-4 h-4" />
