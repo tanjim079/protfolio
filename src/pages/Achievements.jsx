@@ -45,7 +45,8 @@ export default function Achievements() {
   const activities = [
     'Graphics Design Team Lead - Notre Dame College Association of RUET',
     'Logistics Team Lead - Notre Dame College Association of RUET',
-    'Assistant Organizing Secretary - Notre Dame College Association of RUET',
+    'Organizing Secretary - Notre Dame College Association of RUET',
+    'Former Assistant Organizing Secretary - Notre Dame College Association of RUET',
     'Former IT Lead - Tarunner Proyas, Bonpara, Natore (Local Voluntary Organization)',
     'Former Campus Ambassador - Trimatrik Rosikota',
     'Former Executive Member - Photographic Society of RUET',
